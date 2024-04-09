@@ -1,0 +1,77 @@
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0; /* Add this to ensure the body has no margin */
+  background-image: linear-gradient(120deg, blue, violet);
+}
+
+.search-container {
+  text-align: center;
+  /* Ensure that the container takes up full height so the items inside can be centered vertically */
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Stack children (input and suggestions div) vertically */
+}
+.search-container input,
+.search-container .suggestions {
+  width: 300px;
+}
+.search-container input {
+  background-color: rgba(244, 244, 244, 0); /* Ensured transparency */
+  border: 2px solid #ccc; /* Added border for clarity */
+  border-radius: 5px; /* Rounded corners */
+  margin-bottom: 10px;
+  font-size: 24px;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 10px; /* Added padding for spacing */
+}
+.search-container .suggestions {
+  border: 1px solid #ccc;
+  border-top: none; /* Remove top border to blend with the input */
+  border-radius: 0 0 5px 5px; /* Only round bottom corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-height: 200px;
+  overflow-y: auto;
+  display: none; /* Initially hide suggestions */
+}
+
+ul {
+  list-style-type: none;
+}
+ul.has-suggestions {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+}
+ul li {
+  border-bottom: 1px solid #eee; /* Separate items visually */
+  padding: 15px 10px;
+  cursor: pointer;
+}
+ul li:hover {
+  background-color: #f0f0f0;
+}
+
+input {
+   flex: 1;
+   background: transparent;
+   height: 50px;
+   border: 0;
+   outline: 0;
+   font-size: 18px;
+   color: #333;
+}
+
+.search-container input:focus + .suggestions {
+  display: block; /* Show suggestions on input focus */
+}
